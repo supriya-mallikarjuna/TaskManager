@@ -5,7 +5,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const routes: Routes = [
-    { path: '',pathMatch:"full" ,redirectTo: '/dashboard'},
+    { path: '',pathMatch:"full" ,redirectTo: '/sign-in'},
     { path: 'sign-in', component: SignInComponent },
     { path: 'sign-up', component: SignUpComponent },
     { path: 'reset-password', component: ResetPasswordComponent },

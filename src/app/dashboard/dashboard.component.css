@@ -1,47 +1,73 @@
+/* Outer container with border, centered horizontally and vertically */
 .outer-container {
-    display: flex;  /* Enables Flexbox for centering */
-    justify-content: center;  /* Centers horizontally */
-    align-items: center;  /* Centers vertically */
-    height: 100vh;  /* Full viewport height for centering */
-    width: 100vw;  /* Full viewport width (optional, if needed) */
-  }
-  
-  .split-container {
-    display: flex;  /* Enables Flexbox for inner layout */
-    width: 60%;  /* Defines width for inner container (adjust as needed) */
-    justify-content: space-between;  /* Maintains 40/60 split */
-    padding: 10px;  /* Optional padding for inner container */
-    border: 2px solid black;  /* Adds a border to the split-container */
-    
-  }
-  
-  .left-div {
-    flex: 0 0 40%;  /* Takes 40% of the split container */
-    display: flex;  /* Flexbox for vertical alignment */
-    flex-direction: column;  /* Stacks content vertically */
-    justify-content: space-between;  /* Footer at the bottom */
-  }
-  
-  .right-div {
-    flex: 0 0 60%;  /* Takes 60% of the width */
-    display: flex;  /* Flexbox for vertical stacking */
-    flex-direction: column;  /* Stacks content vertically */
-  }
-  
-  .content {
-    flex-grow: 1;  /* Fills available space, pushing the footer to the bottom */
-  }
-  .footer {
-    padding: 10px;  /* Padding for the footer */
-    background-color: lightgray;  /* Optional background color */
-    border-top: 1px solid gray;  /* Optional border */
-  }
-  
-  .footer1 {
-    display: flex;  /* Flexbox for footer */
-    justify-content: end;  /* Centers button horizontally */
-    align-items: center;  /* Centers vertically */
-    height: 50px;  /* Optional height for footer */
-    background-color: white;  /* Optional background */
-  }
-  
+  display: flex;  /* Enables Flexbox */
+  justify-content: center;  /* Centers horizontally */
+  align-items: center;  /* Centers vertically */
+  height: 100vh;  /* Full viewport height for centering */
+  background-color: black;
+}
+
+/* Split container with 40/60 split */
+.split-container {
+  display: flex;  /* Flexbox for inner layout */
+  width: 80%;  /* Total width of the inner container */
+  border: 2px solid black;  /* Adds a border around the container */
+  border-radius: 10px;  /* Optional: Rounded corners for the border */
+  padding: 10px;  /* Optional padding for space within the container */
+  background-color: white;
+
+}
+
+/* Left div with content at the top and footer at the bottom */
+.left-div {
+  flex: 0 0 30%;  /* Takes 40% of the width */
+  display: flex;  /* Flexbox for vertical stacking */
+  flex-direction: column;  /* Stacks content vertically */
+  justify-content: space-between;  /* Keeps footer at the bottom */
+  padding: 10px;  /* Optional padding for space */
+  background-color: white;
+  /* border: 2px solid black;   */
+}
+
+/* Right div with content at the top and footer at the bottom */
+.right-div {
+  flex: 0 0 65%;  /* Takes 60% of the width */
+  display: flex;  /* Flexbox for vertical stacking */
+  flex-direction: column;  /* Stacks content vertically */
+  justify-content: space-between;  /* Keeps footer at the bottom */
+  padding: 10px;  /* Optional padding for space */
+}
+
+/* Footer in the left div with centered button */
+.left-div .footer {
+  display: flex;  /* Flexbox for alignment */
+  justify-content: center;  /* Centers the button in the footer */
+  border-top: 1px solid white;  /* Optional border for the footer */
+  padding: 10px;  /* Optional padding */
+}
+
+/* Footer in the right div with button aligned to the right */
+.right-div .footer {
+  display: flex;  /* Flexbox for alignment */
+  justify-content: flex-end;  /* Aligns the button to the right */
+  border-top: 1px solid white;  /* Optional border for the footer */
+  padding: 10px;  /* Optional padding */
+}
+
+.flex-container {
+  display: flex;  /* Enables Flexbox */
+  justify-content: space-between;  /* Aligns items to opposite ends */
+  align-items: center;  /* Centers items vertically */
+  border-bottom: 1px solid white;  /* Optional border for separation */
+ 
+}
+
+.width_100{
+  width:100%
+}
+
+.border-shadow-container {
+  border: 1px solid lightgrey;  /* Light grey border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
+  border-radius: 5px;  /* Optional rounded corners */
+}

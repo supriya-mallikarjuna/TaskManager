@@ -3,7 +3,7 @@ import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -15,8 +15,14 @@ import { RouterModule } from '@angular/router';
 export class SignInComponent {
 
 
+  constructor(private route:Router){
+
+  }
+
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   passwordFormControl = new FormControl('', [Validators.required]);
 
-
+  gotoDashboard(){
+this.route.navigate(['/dashboard'])
+  }
 }

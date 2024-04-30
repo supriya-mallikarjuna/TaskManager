@@ -1,36 +1,38 @@
-<!-- Outer container centered both horizontally and vertically -->
+<!-- Outer container with border, centered horizontally and vertically -->
 <div class="outer-container">
-  <!-- Inner container with a 40/60 split -->
+  <!-- Split container with 40/60 split -->
   <div class="split-container">
-    <!-- Left div with a centered footer -->
+    <!-- Left div with content at the top and footer with centered button -->
     <div class="left-div">
-        <h3>Lists</h3>
-      <app-list></app-list>
+      <div class="content">
+        <h3 class="pl-16">Lists</h3>
+       <app-list></app-list>
+      </div>
       <div class="footer">
-        <button mat-flat-button color="primary">New List</button>
-        <!-- Centered button in footer -->
+        <button mat-flat-button color="primary" class="width_100" (click)="openDialog('0ms', '0ms')">New List</button>
       </div>
     </div>
 
-    <!-- Right div with a centered footer -->
-    <div class="right-div ">
-        <div class="content">
-        <h3>Tasks</h3>
-      <app-task></app-task>
-      <!-- Centered button in footer -->
-      <div class="footer1 ">
-        <div class="example-button-container">
-          <button
-            mat-fab
-            color="primary"
-            aria-label="Example icon button with a bookmark icon"
-          >
-            <mat-icon>add</mat-icon>
-          </button>
+    <!-- Right div with content at the top and footer with button aligned to the right -->
+    <div class="right-div border-shadow-container ">
+      <div class="content">
+        <div class="flex-container">
+          <h3>Tasks</h3>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="settings"></mat-icon>
+
         </div>
+      <app-task></app-task>
       </div>
+      <div class="footer">
+        <button
+        mat-fab
+        color="primary"
+        aria-label="Example icon button with a bookmark icon"
+        (click)="openDialog('0ms', '0ms')"
+      >
+        <mat-icon >add</mat-icon>
+      </button>
       </div>
     </div>
   </div>
 </div>
-

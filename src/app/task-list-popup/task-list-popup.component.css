@@ -1,0 +1,13 @@
+
+  .dialogClass{
+    padding: 20px;
+  }
+  .pl-0{
+    padding-left: 0px;
+  }
+
+  .align-right {
+    display: flex;  /* Enables Flexbox */
+    justify-content: flex-end;  /* Aligns content to the right */
+  }
+  

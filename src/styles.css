@@ -47,11 +47,14 @@ body {
   }
   
   
+  .pl-16{
+    padding-left: 16px;
+  }
   
   
   
     .bg-color-bue{
-      background-color: #4db2ec;
+      background-color: black;
     }
   
     .bg-color-white{

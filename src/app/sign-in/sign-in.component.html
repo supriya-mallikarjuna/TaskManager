@@ -22,9 +22,9 @@
             />
           </mat-form-field>
   
-          <div class=" centered pb-15"> <a [routerLink]="['/reset-password']" >Forgot password?</a></div>
+          <div class=" centered pb-15 pl_90"> <a [routerLink]="['/reset-password']" >Forgot password?</a></div>
           <div class="example-button-row pb-15">
-            <button mat-flat-button class="mat-button-css" color="primary">
+            <button mat-flat-button class="mat-button-css" color="primary" (click)="gotoDashboard()">
               Login
             </button>
           </div>

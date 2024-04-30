@@ -1,1 +1,15 @@
-<p>task-list-popup works!</p>
+<div class="dialogClass">
+<h3>CREAT NEW TASK</h3>
+
+<mat-dialog-content class="pl-0">
+    <mat-form-field appearance="fill" class="form-full-width">
+      <mat-label>Item Name</mat-label>
+      <input matInput [(ngModel)]="itemName" placeholder="Enter item name" />
+    </mat-form-field>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="align-right">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onCreate()">Create</button>
+  </mat-dialog-actions>
+</div>
