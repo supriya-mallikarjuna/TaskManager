@@ -1,0 +1,47 @@
+.outer-container {
+    display: flex;  /* Enables Flexbox for centering */
+    justify-content: center;  /* Centers horizontally */
+    align-items: center;  /* Centers vertically */
+    height: 100vh;  /* Full viewport height for centering */
+    width: 100vw;  /* Full viewport width (optional, if needed) */
+  }
+  
+  .split-container {
+    display: flex;  /* Enables Flexbox for inner layout */
+    width: 60%;  /* Defines width for inner container (adjust as needed) */
+    justify-content: space-between;  /* Maintains 40/60 split */
+    padding: 10px;  /* Optional padding for inner container */
+    border: 2px solid black;  /* Adds a border to the split-container */
+    
+  }
+  
+  .left-div {
+    flex: 0 0 40%;  /* Takes 40% of the split container */
+    display: flex;  /* Flexbox for vertical alignment */
+    flex-direction: column;  /* Stacks content vertically */
+    justify-content: space-between;  /* Footer at the bottom */
+  }
+  
+  .right-div {
+    flex: 0 0 60%;  /* Takes 60% of the width */
+    display: flex;  /* Flexbox for vertical stacking */
+    flex-direction: column;  /* Stacks content vertically */
+  }
+  
+  .content {
+    flex-grow: 1;  /* Fills available space, pushing the footer to the bottom */
+  }
+  .footer {
+    padding: 10px;  /* Padding for the footer */
+    background-color: lightgray;  /* Optional background color */
+    border-top: 1px solid gray;  /* Optional border */
+  }
+  
+  .footer1 {
+    display: flex;  /* Flexbox for footer */
+    justify-content: end;  /* Centers button horizontally */
+    align-items: center;  /* Centers vertically */
+    height: 50px;  /* Optional height for footer */
+    background-color: white;  /* Optional background */
+  }
+  

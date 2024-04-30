@@ -1,0 +1,38 @@
+<div class="container bg-color-bue">
+    <div class="form-container">
+        <form class="form-class">
+          <h3 class="centered pb-15 text-center">Login</h3>
+          <mat-form-field class="form-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              [formControl]="emailFormControl"
+              placeholder="Ex. pat@example.com"
+            />
+          </mat-form-field>
+  
+          <mat-form-field class="form-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              matInput
+              [formControl]="passwordFormControl"
+              placeholder="Ex. pat@example.com"
+            />
+          </mat-form-field>
+  
+          <div class=" centered pb-15"> <a [routerLink]="['/reset-password']" >Forgot password?</a></div>
+          <div class="example-button-row pb-15">
+            <button mat-flat-button class="mat-button-css" color="primary">
+              Login
+            </button>
+          </div>
+  
+          <div class="centered pb-10">Don't have an account? <a [routerLink]="['/sign-up']" >Signup</a></div>
+   
+  
+        </form>
+   
+    </div>
+  </div>

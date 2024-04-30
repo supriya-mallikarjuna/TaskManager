@@ -1,0 +1,36 @@
+<!-- Outer container centered both horizontally and vertically -->
+<div class="outer-container">
+  <!-- Inner container with a 40/60 split -->
+  <div class="split-container">
+    <!-- Left div with a centered footer -->
+    <div class="left-div">
+        <h3>Lists</h3>
+      <app-list></app-list>
+      <div class="footer">
+        <button mat-flat-button color="primary">New List</button>
+        <!-- Centered button in footer -->
+      </div>
+    </div>
+
+    <!-- Right div with a centered footer -->
+    <div class="right-div ">
+        <div class="content">
+        <h3>Tasks</h3>
+      <app-task></app-task>
+      <!-- Centered button in footer -->
+      <div class="footer1 ">
+        <div class="example-button-container">
+          <button
+            mat-fab
+            color="primary"
+            aria-label="Example icon button with a bookmark icon"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+

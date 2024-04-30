@@ -1,0 +1,28 @@
+.card-icons {
+    margin-left: auto; /* Pushes icons to the right side */
+    display: flex;
+    gap: 8px; /* Adds spacing between icons */
+  }
+  
+  .mat-icon {
+    font-size: 24px; /* Custom icon size if needed */
+  }
+
+
+  .card-content {
+    display: flex;  /* Enables Flexbox for layout */
+    justify-content: space-between;  /* Positions items on the left and right */
+    align-items: center;  /* Aligns vertically if needed */
+  }
+  
+  .text-content {
+    flex: 1;  /* Ensures the text content takes available space */
+  }
+  
+  .icon-content {
+    display: flex;  /* Positions icons in a row */
+    gap: 10px;  /* Spacing between icons */
+  }
+  .padded-card {
+    padding: 5px;  /* Adds 16px padding to all sides */
+  }
