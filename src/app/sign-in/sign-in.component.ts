@@ -1,3 +1,4 @@
+import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -8,14 +9,14 @@ import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [FormsModule,RouterModule,MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatButtonModule],
+  imports: [ GoogleSigninButtonModule,FormsModule,RouterModule,MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatButtonModule],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })
 export class SignInComponent {
 
 
-  constructor(private route:Router){
+  constructor(private route:Router,private authService:SocialAuthService){
 
   }
 
@@ -24,5 +25,12 @@ export class SignInComponent {
 
   gotoDashboard(){
 this.route.navigate(['/dashboard'])
+  }
+
+  ngOnInit(): void {
+    this.authService.authState.subscribe((user) => {
+      console.log(user)
+      //perform further logics
+    });
   }
 }

@@ -1,3 +1,27 @@
 .pl_90{
     padding-left: 90px;
 }
+
+/* CSS styling to make the custom component resemble a Material Design button */
+.custom-google-signin-button {
+    display: inline-flex;  /* Flex behavior similar to Material buttons */
+    align-items: center;  /* Center content vertically */
+    justify-content: center;  /* Center content horizontally */
+    padding: 8px 16px;  /* Padding similar to Material buttons */
+    background-color: #3f51b5;  /* Material primary color (indigo) */
+    color: #fff;  /* White text color */
+    border-radius: 4px;  /* Slightly rounded corners */
+    text-transform: uppercase;  /* Capitalize text */
+    font-weight: bold;  /* Bold font for button-like appearance */
+    cursor: pointer;  /* Pointer cursor for interactive elements */
+    transition: all 0.2s;  /* Smooth transition for hover effects */
+  }
+  
+  .custom-google-signin-button:hover {
+    background-color: #303f9f;  /* Darker shade for hover effect */
+  }
+  
+  .custom-google-signin-button:active {
+    background-color: #283593;  /* Even darker shade for active effect */
+  }
+  
