@@ -102,14 +102,15 @@ export class SignInComponent {
           JSON.stringify(error.error.error)
          
         ); // Handle error
-        this.openSnackBar()
+        this.openSnackBar(error.error.error)
       }
     );
   }
 
-  openSnackBar() {
+  openSnackBar(err:any) {
     this._snackBar.openFromComponent(SnackbarComponent, {
       duration: this.durationInSeconds * 1000,
+      data: { message: err },
     });
   }
 }
