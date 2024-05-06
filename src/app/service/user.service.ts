@@ -18,4 +18,8 @@ export class UserService {
   createUser(userData: any): Observable<any> {
     return this.http.post(this.apiUrl+"/users/create", userData);  // POST request with form data
   }
+
+  authUser(userData: any): Observable<any> {
+    return this.http.post(this.apiUrl+"/auth/login", userData);  // POST request with form data
+  }
 }

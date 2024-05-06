@@ -7,7 +7,7 @@ import { Router, RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { UserService } from '../service/user.service';
+import { UserService } from '../../service/user.service';
 import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
 
 

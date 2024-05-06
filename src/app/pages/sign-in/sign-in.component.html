@@ -1,0 +1,63 @@
+<div class="container bg-color-bue">
+  <div class="form-container">
+    <form class="form-class" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <h3 class="centered pb-15 text-center">Login</h3>
+      <mat-form-field class="form-full-width">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          required
+          placeholder="John@gmail.com"
+        />
+        <mat-error *ngIf="userForm.controls['email'].hasError('required')"
+          >Email is required</mat-error
+        >
+        <mat-error *ngIf="userForm.controls['email'].hasError('email')"
+          >Invalid email format</mat-error
+        >
+      </mat-form-field>
+
+        <!-- Password Field with Visibility Toggle -->
+        <mat-form-field class="form-full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="togglePasswordVisibility()"
+            type="button"
+          >
+            <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+          <mat-error *ngIf="userForm.controls['password'].hasError('required')">Password is required</mat-error>
+        </mat-form-field>
+  
+    
+      <div class="example-button-row pb-15">
+        <button
+          mat-flat-button
+          class="mat-button-css"
+          color="primary"
+       
+        >
+          Login
+        </button>
+      </div>
+
+      <div class="centered pb-10">
+        Don't have an account? <a [routerLink]="['/sign-up']">Signup</a>
+      </div>
+    </form>
+    <asl-google-signin-button type="standard" size="large" ></asl-google-signin-button>
+ 
+  </div>
+
+  
+</div>

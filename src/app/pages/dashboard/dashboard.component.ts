@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { ListComponent } from '../list/list.component';
-import { TaskComponent } from '../task/task.component';
+import { ListComponent } from '../../components/list/list.component';
+import { TaskComponent } from '../../components/task/task.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { CreateDialogComponent } from '../create-dialog/create-dialog.component';
+import { CreateDialogComponent } from '../../reusable-components/create-dialog/create-dialog.component';
 
 
 @Component({
