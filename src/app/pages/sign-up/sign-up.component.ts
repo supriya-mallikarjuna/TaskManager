@@ -9,13 +9,15 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../service/user.service';
 import { GoogleSigninButtonModule, SocialAuthService } from '@abacritt/angularx-social-login';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../reusable-components/snackbar/snackbar.component';
 
 
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [GoogleSigninButtonModule,FormsModule,CommonModule, MatIconModule,RouterModule,MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatButtonModule],
+  imports: [GoogleSigninButtonModule,SnackbarComponent,FormsModule,CommonModule, MatIconModule,RouterModule,MatFormFieldModule, MatInputModule, ReactiveFormsModule,MatButtonModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',
  
@@ -24,7 +26,11 @@ export class SignUpComponent {
 
   userForm: FormGroup;
   hidePassword = true;
-  constructor(private fb: FormBuilder, private authService:SocialAuthService,private userService:UserService,private route:Router) {
+  durationInSeconds = 5;
+  constructor(private fb: FormBuilder, 
+    private authService:SocialAuthService,
+    private _snackBar: MatSnackBar,
+    private userService:UserService,private route:Router) {
     // Apply the custom validator to the form group
     this.userForm = this.fb.group(
       {
@@ -72,6 +78,7 @@ export class SignUpComponent {
 
 
 createUser(userData:any){
+  console.log(userData)
  // Call the service and subscribe to the response
  this.userService.createUser(userData).subscribe(
   (response) => {
@@ -80,8 +87,21 @@ createUser(userData:any){
   },
   (error) => {
     console.error('Error creating user:', error);  // Handle error
+    this.openSnackBar(error.error.error)
+    // this.route.navigate(['/sign-in'])
   }
 );
 }
 
+
+openSnackBar(err:any) {
+  this._snackBar.openFromComponent(SnackbarComponent, {
+    duration: this.durationInSeconds * 1000,
+    data: { message: err },
+  });
+}
+
+ngOnDestroy() {
+  this.authService.signOut();  // Clear social login data when the component is destroyed
+}
 }

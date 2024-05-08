@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogActions, MatDialogClose, MatDialogTitle, MatDialogContent, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterModule } from '@angular/router';
@@ -19,19 +19,38 @@ import { RouterModule } from '@angular/router';
 export class CreateDialogComponent {
 
   itemName: string = '';  // The input field's data binding
+ 
 
   constructor(
-    public dialogRef: MatDialogRef<CreateDialogComponent>
+    public dialogRef: MatDialogRef<CreateDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   // Method to handle cancel action
   onCancel(): void {
-    this.dialogRef.close();  // Closes the dialog without returning data
+    this.dialogRef.close();
+    this.clearData()  // Closes the dialog without returning data
   }
 
   // Method to handle create action
   onCreate(): void {
-    this.dialogRef.close(this.itemName);  // Closes the dialog and returns the input value
+    console.log("....",this.data)
+    if(this.data.title == "create new list"){
+      this.dialogRef.close({ action: 'createList', data: this.data });
+     
+    } if(this.data.title == "edit task"){
+      this.dialogRef.close({ action: 'editTask', data: this.data });
+      
+    }if(this.data.title == "create new task"){
+      this.dialogRef.close({ action: 'createTask', data: this.data });
+     
+    }
+    // this.clearData();
+   // Closes the dialog and returns the input value
+  }
+
+  clearData(): void {
+    this.data.taskDetails.title = ''; // Clear the input data
   }
 }
 

@@ -1,15 +1,16 @@
 <div class="dialogClass">
-    <h3>CREAT NEW TASK</h3>
+    <h3>{{data.title | uppercase}}</h3>
+    <!-- {{data | json}} -->
     
     <mat-dialog-content class="pl-0">
         <mat-form-field appearance="fill" class="form-full-width">
-          <mat-label>Item Name</mat-label>
-          <input matInput [(ngModel)]="itemName" placeholder="Enter item name" />
+          <mat-label>{{data.title  | uppercase}}</mat-label>
+          <input matInput [(ngModel)]="data.taskDetails.title" placeholder="Type here" />
         </mat-form-field>
       </mat-dialog-content>
       
       <mat-dialog-actions class="align-right">
         <button mat-button (click)="onCancel()">Cancel</button>
-        <button mat-raised-button color="primary" (click)="onCreate()">Create</button>
+        <button mat-raised-button color="primary" (click)="onCreate()">{{data.buttonTitle}}</button>
       </mat-dialog-actions>
     </div>

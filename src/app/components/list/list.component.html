@@ -1,9 +1,8 @@
 
 <mat-list>
-    <div *ngFor="let data of items" class="pb-15">
-    <mat-list-item>Item 1</mat-list-item>
+    <div *ngFor="let list of lists" (click)="selectList(list)">
+    <mat-list-item  [class.selected]="list.name == selectedList">  {{ list.name }}</mat-list-item>
     </div>
-
   </mat-list>
   
 

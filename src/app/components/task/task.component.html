@@ -1,27 +1,30 @@
 
-
-  <div *ngFor="let data of items" class="pb-15">
-
-
+<div *ngIf="selectedList">
+  <div *ngFor="let task of selectedList.tasks" class="pb-15">
 
   <mat-card class="padded-card ">
     <div class="card-content">
       <!-- Left side text -->
       <div class="text-content">
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.....
-            </p>
+        <p>  {{ task.title }} </p>
       </div>
   
       <!-- Right side icons -->
       <div class="icon-content">
-        <button mat-icon-button (click)="editItem()">
+        <button mat-icon-button (click)="editTask(task)">
           <mat-icon>edit</mat-icon>
         </button>
-        <button mat-icon-button (click)="deleteItem()">
+        <button mat-icon-button (click)="deleteTask(task)">
           <mat-icon>delete</mat-icon>
         </button>
       </div>
     </div>
   </mat-card>
-  
+
 </div>
+</div>
+
+<div *ngIf="!selectedList">
+  <p>Please select a list to view tasks.</p>
+</div>
+

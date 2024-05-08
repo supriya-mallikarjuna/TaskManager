@@ -55,8 +55,12 @@
         Don't have an account? <a [routerLink]="['/sign-up']">Signup</a>
       </div>
     </form>
-    <asl-google-signin-button type="standard" size="large" ></asl-google-signin-button>
- 
+    <!-- <asl-google-signin-button type="standard" size="large" (click)="getData()"></asl-google-signin-button> -->
+    <asl-google-signin-button 
+    type="standard" 
+    size="large" 
+    (click)="onGoogleSignInClick()">
+  </asl-google-signin-button>
   </div>
 
   

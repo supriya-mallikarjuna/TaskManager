@@ -62,30 +62,33 @@ export class SignInComponent {
     this.hidePassword = !this.hidePassword; // Toggle password visibility
   }
 
-  gotoDashboard() {
-    this.route.navigate(["/dashboard"]);
-  }
+
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
-      console.log(user);
+      console.log("........",user);
       let userData = {
         email: user.email,
+        loginType: "social" 
       };
       this.authenticateUser(userData);
     });
   }
+  onGoogleSignInClick(){
+    console.log("button clicked")
+  }
 
   onSubmit() {
     if (this.userForm.valid) {
-      console.log("Form Submitted:", this.userForm.value.name);
+      // console.log("Form Submitted:", this.userForm.value.name);
 
       const formData = this.userForm.value;
       let userData = {
         email: this.userForm.get("email")?.value,
         password: this.userForm.get("password")?.value,
+        loginType: "manual" 
       };
-      console.log(userData);
+      // console.log(userData);
       this.authenticateUser(userData);
     }
   }
@@ -99,7 +102,7 @@ export class SignInComponent {
       (error) => {
         console.error(
           "Error creating user:",
-          JSON.stringify(error.error.error)
+          // JSON.stringify(error.error.error)
          
         ); // Handle error
         this.openSnackBar(error.error.error)
@@ -112,5 +115,8 @@ export class SignInComponent {
       duration: this.durationInSeconds * 1000,
       data: { message: err },
     });
+  }
+  ngOnDestroy() {
+    this.authService.signOut();  // Clear social login data when the component is destroyed
   }
 }
